@@ -1,0 +1,5 @@
+dockerfile_copy/jboss-eap-6.2.0.zip
+dockerfile_copy/jboss-eap-6.2.4-patch.zip
+dockerfile_copy/patch-jboss-eap.sh
+dockerfile_copy/setup-jboss-eap-profile.sh
+
