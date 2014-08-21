@@ -14,21 +14,19 @@ then
 fi
 
 function usage {
-      echo "Usage: patch-jboss-eap.sh [args...]" >&2
-      echo "where args include:" >&2
-      echo "	-j		JBoss installation directory." >&2
-      echo "	-p		JBoss EAP patch file." >&2
+      echo "Usage: patch-jboss-eap.sh [args...]"
+      echo "where args include:"
+      echo "	-j		JBoss installation directory."
+      echo "	-p		JBoss EAP patch file."
 }
 
 #Parse the params
 while getopts ":j:p:h" opt; do
   case $opt in
     j)
-      echo "-j was triggered, Paramer: $OPTARG" >&2 
       JBOSS_INSTALLATION_DIR=$OPTARG
       ;;
     p)
-      echo "-c was triggered, Paramer: $OPTARG" >&2
       PATCH_FILE=$OPTARG 
       ;;
     h)

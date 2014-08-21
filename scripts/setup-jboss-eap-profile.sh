@@ -14,31 +14,27 @@ then
 fi
 
 function usage {
-      echo "Usage: setup-jboss-eap-profile.sh [args...]" >&2
-      echo "where args include:" >&2
-      echo "	-s		JBoss source configuration profile." >&2 
-      echo "	-t		JBoss target configuration profile." >&2 
-      echo "	-j		JBoss installation directory." >&2
-      echo "	-c		CLI scripst directory." >&2
+      echo "Usage: setup-jboss-eap-profile.sh [args...]"
+      echo "where args include:"
+      echo "	-s		JBoss source configuration profile."
+      echo "	-t		JBoss target configuration profile."
+      echo "	-j		JBoss installation directory."
+      echo "	-c		CLI scripst directory."
 }
 
 #Parse the params
 while getopts ":s:t:j:c:h" opt; do
   case $opt in
     s)
-      echo "-s was triggered, Parameter: $OPTARG" >&2
       SOURCE_PROFILE=$OPTARG
       ;;
     t)
-      echo "-t was triggered, Paramer: $OPTARG" >&2 
       TARGET_PROFILE=$OPTARG
       ;;
     j)
-      echo "-j was triggered, Paramer: $OPTARG" >&2 
       JBOSS_INSTALLATION_DIR=$OPTARG
       ;;
     c)
-      echo "-c was triggered, Paramer: $OPTARG" >&2
       CLI_SCRIPTS_DIR=$OPTARG 
       ;;
     h)
