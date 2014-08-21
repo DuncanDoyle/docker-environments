@@ -5,6 +5,8 @@ FROM ddoyle/jboss_base
 
 MAINTAINER ddoyle <ddoyle@redhat.com>
 
+EXPOSE 8080 9990 9999
+
 # Add installation files to tmp.
 RUN mkdir /tmp/dockerfile_copy
 COPY dockerfile_copy/ /tmp/dockerfile_copy
@@ -23,6 +25,3 @@ USER jboss
 # Define the entrypoint and cmd.
 ENTRYPOINT ["/opt/jboss/jboss-eap-6.3/bin/standalone.sh"]
 CMD ["-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
-
-EXPOSE 8080 9990 9999
-
