@@ -17,5 +17,7 @@ RUN /opt/jboss/jboss-eap-6.1/bin/add-user.sh -a -r ApplicationRealm -u bpmsAdmin
 
 # Clean up
 USER root
+# For one reason or the other, we need to delete this file first for the 'rm -rf' to work ... Got no idea why .....
+RUN rm /tmp/dockerfile_copy/jboss-bpms-6.0.2.GA-redhat-5-deployable-eap6.x.zip
 RUN rm -rf /tmp/dockerfile_copy
 USER jboss

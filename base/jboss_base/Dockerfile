@@ -11,7 +11,7 @@ MAINTAINER ddoyle <ddoyle@redhat.com>
 RUN yum -y update && yum clean all
 
 # Set root password
-echo "root:redhat" | chpasswd
+RUN echo "root:redhat" | chpasswd
 
 #Install necessary RPMs, i.e. the JVM and unzip. A JVM is required for all JBoss docker images.
 RUN yum -y install java-1.7.0-openjdk java-1.7.0-openjdk-devel unzip && yum clean all
