@@ -1,7 +1,7 @@
 #
 # JBoss BPMSuite 6.0.2 image which uses PostgreSQL as datasource.
 #
-FROM ddoyle/jboss-bpmsuite-6.0.3_base
+FROM ddoyle/jboss-bpmsuite:6.0.3
 
 MAINTAINER ddoyle <ddoyle@redhat.com>
 

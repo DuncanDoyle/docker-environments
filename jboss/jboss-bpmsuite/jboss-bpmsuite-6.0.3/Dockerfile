@@ -1,7 +1,7 @@
 # 
 # Docker base image of JBoss BPMSuite 6.0.2
 #
-FROM ddoyle/jboss-eap-6.1.1
+FROM ddoyle/jboss-eap:6.1.1
 
 MAINTAINER ddoyle <ddoyle@redhat.com>
 

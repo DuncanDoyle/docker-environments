@@ -4,4 +4,4 @@
 #
 # author: ddoyle@redhat.com
 #
-docker build --rm -t ddoyle/jboss-bpmsuite:6.0.3 .
+docker build --rm -t ddoyle/jboss-bpmsuite:6.0.2 .
