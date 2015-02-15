@@ -12,7 +12,7 @@ RUN mkdir /tmp/dockerfile_copy_2
 COPY dockerfile_copy/ /tmp/dockerfile_copy_2
 
 # Patch the EAP installation
-RUN /tmp/dockerfile_copy_2/patch-jboss-eap.sh -j /opt/jboss/jboss-eap-6.3/ -p /tmp/dockerfile_copy/jboss-eap-6.3.2-patch.zip
+RUN /tmp/dockerfile_copy_2/patch-jboss-eap.sh -j /opt/jboss/jboss-eap-6.3/ -p /tmp/dockerfile_copy_2/jboss-eap-6.3.2-patch.zip
 
 # Clean up. Need to change to root for now because Docker COPY copies files as root (this is likely gonna change in future versions, where Docker COPY will respect USER config.
 USER root
