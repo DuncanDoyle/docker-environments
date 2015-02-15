@@ -1,25 +1,22 @@
 #
-# JBoss EAP 6.2.0 base-image.
+# JBoss EAP 6.2.4 base-image.
 #
-FROM ddoyle/jboss_base:1.0.0
+FROM ddoyle/jboss-eap:6.2.0
 
 MAINTAINER ddoyle <ddoyle@redhat.com>
 
 EXPOSE 8080 9990 9999
 
 # Add installation files to tmp.
-RUN mkdir /tmp/dockerfile_copy
-COPY ./dockerfile_copy/ /tmp/dockerfile_copy
+RUN mkdir /tmp/dockerfile_copy_2
+COPY dockerfile_copy/ /tmp/dockerfile_copy_2
 
-# Unzip the JBoss EAP installation.
-RUN unzip -q /tmp/dockerfile_copy/jboss-eap-6.2.0.zip -d /opt/jboss
-
-# Add a default admin user.
-RUN /opt/jboss/jboss-eap-6.2/bin/add-user.sh admin jboss@01 --silent 
+# Patch the EAP installation
+RUN /tmp/dockerfile_copy_2/patch-jboss-eap.sh -j /opt/jboss/jboss-eap-6.2/ -p /tmp/dockerfile_copy/jboss-eap-6.2.4-patch.zip
 
 # Clean up. Need to change to root for now because Docker COPY copies files as root (this is likely gonna change in future versions, where Docker COPY will respect USER config.
 USER root
-RUN rm -rf /tmp/dockerfile_copy
+RUN rm -rf /tmp/dockerfile_copy_2
 USER jboss
 
 # Define the entrypoint and cmd.
