@@ -1,7 +1,7 @@
 #
 # JBoss EAP 6.2.0 base-image.
 #
-FROM ddoyle/jboss_base
+FROM ddoyle/jboss_base:1.0.0
 
 MAINTAINER ddoyle <ddoyle@redhat.com>
 
