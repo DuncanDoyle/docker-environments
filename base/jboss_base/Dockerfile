@@ -1,9 +1,9 @@
 #
 # Base image for all jboss related docker images.
 #
-# This docker image uses CentOS 6 as the base OS (CentOS 7's systemd gives problems in a Docker environment atm), 
+# This docker image uses the Java 7 image (which is build on CentOS 6, CentOS 7's systemd gives problems in a Docker environment atm), 
 #
-FROM    ddoyle/java_base:1.0.0
+FROM    ddoyle/java_base:1.7
 
 MAINTAINER ddoyle <ddoyle@redhat.com>
 
