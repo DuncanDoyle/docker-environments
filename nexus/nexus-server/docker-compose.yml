@@ -1,0 +1,8 @@
+nexusServer:
+  image: ddoyle/nexus-server:2.11
+  ports:
+    - "48081:8081"
+  volumes_from:
+    - nexus-data-default
+
+
