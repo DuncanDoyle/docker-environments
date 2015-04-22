@@ -1,8 +1,8 @@
 {
   "data":{
     "repoType":"hosted",
-    "id":"jboss-eap-6.3.0.GA-maven-repository",
-    "name":"jboss-eap-6.3.0.GA-maven-repository",
+    "id":"jboss-bpmsuite-6.1.0.GA-maven-repository",
+    "name":"jboss-bpmsuite-6.1.0.GA-maven-repository",
     "writePolicy":"ALLOW_WRITE_ONCE",
     "browseable":true,
     "indexable":true,
@@ -11,7 +11,7 @@
     "repoPolicy":"RELEASE",
     "provider":"maven2",
     "providerRole":"org.sonatype.nexus.proxy.repository.Repository",
-    "overrideLocalStorageUrl":"file:/Users/ddoyle/bla/jboss-eap-6.3.0.GA-maven-repository",
+    "overrideLocalStorageUrl":"file:/data/nexus/repositories/thirdparty/jboss-bpmsuite-6.1.0.GA-maven-repository",
     "downloadRemoteIndexes":false,
     "checksumPolicy":"IGNORE"}
 }

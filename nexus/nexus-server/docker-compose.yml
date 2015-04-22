@@ -4,5 +4,6 @@ nexusServer:
     - "48081:8081"
   volumes_from:
     - nexus-data-default
+    - nexus-data-thirdparty
 
 

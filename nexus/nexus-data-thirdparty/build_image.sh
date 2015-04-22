@@ -4,4 +4,4 @@
 #
 # author: ddoyle@redhat.com
 #
-docker build --rm -t ddoyle/nexus-data-3rdparty:1.0.0 .
+docker build --rm -t ddoyle/nexus-data-thirdparty:1.0.0 .

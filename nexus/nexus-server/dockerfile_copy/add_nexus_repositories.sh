@@ -93,7 +93,10 @@ fi
 if [ ! -z "$JSON_ADD_REPO_REQUESTS_DIR" ]
 then
 # Now that the system is running, we can run our CLI scripts. They will be executed in the order defined by 'sort -V'
-        for f in `ls $JSON_ADD_REPO_REQUESTS_DIR/*.json | sort`
+#        for f in `ls $JSON_ADD_REPO_REQUESTS_DIR/*.json | sort`
+	echo "Configuring additional Maven repositories."
+
+	for f in `find $JSON_ADD_REPO_REQUESTS_DIR -type f -name "*_add_request.json"`
         do
                 echo "Calling Nexus REST API. Adding repositories. JSON request file: " $f
 		curl -i -H "Accept: application/json" -H "Content-Type: application/json" -f -X POST  -v -d "@$f" -u "admin:admin123" "http://localhost:8081/nexus/service/local/repositories"			
