@@ -1,0 +1,17 @@
+{
+  "data":{
+    "repoType":"hosted",
+    "id":"distribution-snapshot-maven-repository",
+    "name":"distribution-snapshot-maven-repository",
+    "writePolicy":"ALLOW_WRITE_ONCE",
+    "browseable":true,
+    "indexable":true,
+    "exposed":true,
+    "notFoundCacheTTL":1440,
+    "repoPolicy":"SNAPSHOT",
+    "provider":"maven2",
+    "providerRole":"org.sonatype.nexus.proxy.repository.Repository",
+    "overrideLocalStorageUrl":"file:/data/nexus/repositories/distribution/snapshot",
+    "downloadRemoteIndexes":false,
+    "checksumPolicy":"IGNORE"}
+}

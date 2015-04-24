@@ -17,7 +17,7 @@ RUN mkdir /tmp/dockerfile_copy
 COPY dockerfile_copy/ /tmp/dockerfile_copy
 
 # Create the directory for all JBoss product installations.
-RUN mkdir -p /data/nexus/repositories && mkdir -p /data/nexus/json-add-repo-requests && chown -R nexus:nexus /data/nexus/
+RUN mkdir -p /data/nexus/repositories && chown -R nexus:nexus /data/nexus/
 USER nexus 
 # JBoss EAP 6.3.0
 RUN unzip /tmp/dockerfile_copy/jboss-eap-6.3.0-maven-repository.zip -d /data/nexus/repositories/thirdparty && cp /tmp/dockerfile_copy/jboss-eap-6.3.0.GA-maven-repository-nexus-rest-repository_add_request.json /data/nexus/repositories/thirdparty/jboss-eap-6.3.0.GA-maven-repository-nexus-rest-repository_add_request.json
