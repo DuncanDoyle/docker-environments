@@ -12,10 +12,10 @@ MAINTAINER ddoyle <ddoyle@redhat.com>
 #RUN groupadd -r jboss -g 433 && useradd -u 431 -r -m -g jboss -d /home/jboss -s /sbin/nologin -c "JBoss Docker image user" jboss && mkdir /home/jboss && chown -R jboss:jboss /home/jboss && echo "jboss:jboss" | chpasswd && echo "root:root" | chpasswd
 RUN useradd -r -m  -s /sbin/nologin -c "Nexus user" -p nexus@01 nexus
 
-# Create the directory for all JBoss product installations.
+# Create the directory for all Nexus product installations.
 RUN mkdir /opt/nexus && chown nexus:nexus /opt/nexus
 
-# Set user, workdir and HOME environment variable to the JBoss user.
+# Set user, workdir and HOME environment variable to the NEXUS user.
 USER nexus
 WORKDIR /home/nexus
 ENV HOME /home/nexus
