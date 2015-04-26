@@ -1,7 +1,7 @@
 #
 # PostgreSQL image for JBoss BPMSuite.
 #
-FROM ddoyle/postgres-9.3_base
+FROM ddoyle/postgresql:9.3
 
 MAINTAINER ddoyle <ddoyle@redhat.com>
 
