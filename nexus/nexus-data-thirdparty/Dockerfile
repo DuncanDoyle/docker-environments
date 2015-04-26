@@ -20,7 +20,7 @@ COPY dockerfile_copy/ /tmp/dockerfile_copy
 RUN mkdir -p /data/nexus/repositories && chown -R nexus:nexus /data/nexus/
 USER nexus 
 # JBoss EAP 6.3.0
-RUN unzip /tmp/dockerfile_copy/jboss-eap-6.3.0-maven-repository.zip -d /data/nexus/repositories/thirdparty && cp /tmp/dockerfile_copy/jboss-eap-6.3.0.GA-maven-repository-nexus-rest-repository_add_request.json /data/nexus/repositories/thirdparty/jboss-eap-6.3.0.GA-maven-repository-nexus-rest-repository_add_request.json
+RUN unzip /tmp/dockerfile_copy/jboss-eap-6.3.0-maven-repository.zip -d /data/nexus/repositories/thirdparty && cp /tmp/dockerfile_copy/jboss-eap-6.3.0.GA-maven-repository-nexus-rest-repository_add_request.json /data/nexus/repositories/thirdparty/jboss-eap-6.3.0.GA-maven-repository-nexus-rest-repository_add_request.json && unzip -o /tmp/dockerfile_copy/jboss-eap-6.3.1-incremental-maven-repository.zip -d /data/nexus/repositories/thirdparty/jboss-eap-6.3.0.GA-maven-repository && unzip -o /tmp/dockerfile_copy/jboss-eap-6.3.2-incremental-maven-repository.zip -d /data/nexus/repositories/thirdparty/jboss-eap-6.3.0.GA-maven-repository && unzip -o /tmp/dockerfile_copy/jboss-eap-6.3.3-incremental-maven-repository.zip -d /data/nexus/repositories/thirdparty/jboss-eap-6.3.0.GA-maven-repository
 
 #JBoss EAP 6.4.0
 RUN unzip /tmp/dockerfile_copy/jboss-eap-6.4.0-maven-repository.zip -d /data/nexus/repositories/thirdparty && cp /tmp/dockerfile_copy/jboss-eap-6.4.0.GA-maven-repository-nexus-rest-repository_add_request.json /data/nexus/repositories/thirdparty/jboss-eap-6.4.0.GA-maven-repository-nexus-rest-repository_add_request.json
