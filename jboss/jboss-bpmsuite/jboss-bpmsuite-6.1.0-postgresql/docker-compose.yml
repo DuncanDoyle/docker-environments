@@ -1,0 +1,21 @@
+postgresql:
+  image: ddoyle/postgresql:9.3_bpmsuite
+  ports:
+    - "5432"
+bpmsData:
+  image: ddoyle/data_base:1.0.0
+  command: true
+  volumes:
+    - /bpms-data
+jbossBpmsuite:
+  image: ddoyle/jboss-bpmsuite:6.1.0_postgresql
+  volumes_from:
+    - bpmsData
+  links:
+    - postgresql:postgresql
+  ports:
+    - "8080"
+    - "9990"
+    - "9999"
+
+

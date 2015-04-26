@@ -1,0 +1,85 @@
+<project name="install-postgresql-layer" default="build-layer" xmlns:artifact="antlib:org.apache.maven.artifact.ant" >
+
+    <property environment="ENV"/>
+    <property file="build.properties" />
+
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+
+    <target name="clean">
+        <echo message="***** Cleaning the target directory." />
+	<delete dir="${target.dir}" />
+    </target>
+
+    <!-- Filters our modules directory and replaces the version number placeholders in the module.xml's with the version numbers defined in our build.properties. -->
+    <target name="filter-modules" depends="clean">
+	 <antcall target="filter">
+            <param name="source.dir" value="modules"/>
+            <param name="dest.dir" value="${target.dir.layer}"/>
+        </antcall>
+    </target>
+
+    
+    <target name="build-layer" depends="filter-modules, build-module-org.postgresql">
+    </target>
+
+    <target name="install-layer" depends="build-layer">
+	<fail message="Property &quot;installation.dir.layers&quot; needs to be set" unless="installation.dir.layers"/>
+	<copy todir="${installation.dir.layers}">
+                <fileset dir="${target.dir}"/>
+        </copy>
+    </target>
+
+
+    <target name="build-module-org.postgresql">
+
+        <artifact:dependencies filesetId="dependency.fileset" useScope="runtime">
+  	<!-- Your dependency definitions go here -->
+		<!--
+		<dependency groupId="org.postgresql" artifactId="postgresql" version="${version.postgresql}" scope="compile">
+		</dependency>
+		-->
+		<dependency groupId="org.postgresql" artifactId="postgresql" version="${version.postgresql}" scope="compile"/>
+	</artifact:dependencies>
+	<copy todir="${target.dir.layer}/org/postgresql/main">
+  		<fileset refid="dependency.fileset" />
+  		<!-- This mapper strips off all leading directory information -->
+  		<mapper type="flatten" />
+	</copy>
+    </target>
+
+<!--
+        pass following parameters to this target :
+        1) source.dir
+        2) file.name (optional)
+        3) dest.dir
+    -->
+    <!--
+        - using depends because with antcall :  The called target(s) are run in a new project; 
+        - be aware that this means properties, references, etc. set by called targets will not persist back to the calling project.
+    -->
+    <target name="filter" >
+        <fail unless="source.dir" message="filter:  need to pass 'source.dir' property" />
+        <fail unless="dest.dir" message="filter:  need to pass 'dest.dir' property" />
+        <!--echo message="filter:  source.dir = ${source.dir} :  dest.dir = ${dest.dir}" / -->
+        <if>
+            <isset property="file.name"/>
+            <then>
+                <copy file="${source.dir}/${file.name}" toDir="${dest.dir}" overwrite="true" preservelastmodified="true" verbose="false">
+                    <filterchain>
+                        <expandproperties/>
+                    </filterchain>
+                </copy>
+            </then>
+            <else>
+                <copy toDir="${dest.dir}" overwrite="true" verbose="false" preservelastmodified="true">
+                    <fileset dir="${source.dir}" />
+                    <filterchain>
+                        <expandproperties/>
+                    </filterchain>
+                </copy>
+            </else>
+        </if>
+    </target>
+
+
+</project>
