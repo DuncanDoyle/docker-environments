@@ -1,7 +1,7 @@
 {
   "data":{
     "repoType":"hosted",
-    "id":"distirbution-release-maven-repository",
+    "id":"distribution-release-maven-repository",
     "name":"distribution-release-maven-repository",
     "writePolicy":"ALLOW_WRITE_ONCE",
     "browseable":true,
