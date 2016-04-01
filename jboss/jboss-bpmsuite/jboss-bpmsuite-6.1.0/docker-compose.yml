@@ -1,0 +1,7 @@
+bpmSuite:
+   image: ddoyle/jboss-bpmsuite:6.1.0
+   ports:
+    - "8080"
+    - "9990"
+    - "9999"
+    - "8787"
