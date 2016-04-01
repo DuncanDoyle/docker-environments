@@ -1,0 +1,2 @@
+connect jmx://localhost:9999
+shutdown
