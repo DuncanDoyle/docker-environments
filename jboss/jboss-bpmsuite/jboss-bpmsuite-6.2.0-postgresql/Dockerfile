@@ -5,6 +5,8 @@ FROM ddoyle/jboss-bpmsuite:6.2.0
 
 MAINTAINER ddoyle <ddoyle@redhat.com>
 
+LABEL database=postgresql
+
 ############################################
 # Copy artifacts.
 ############################################

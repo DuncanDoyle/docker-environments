@@ -6,7 +6,7 @@ services:
     ports:
       - "5432"
   jbossBpmsuite:
-    image: ddoyle/jboss-bpmsuite:6.2.0_postgresql
+    image: ddoyle/jboss-bpmsuite_postgresql:6.2.0_postgresql
     volumes:
       - jboss-bpmsuite-6.2.0_postgresql-data:/bpms-data
     links:
