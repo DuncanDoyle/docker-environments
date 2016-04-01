@@ -5,11 +5,6 @@ services:
     image: ddoyle/postgresql:9.3_bpmsuite
     ports:
       - "5432"
-#  bpmsData:
-#    image: ddoyle/jboss-bpms-data:1.0.0
-#    command: true
-#    volumes:
-#      - /bpms-data
   jbossBpmsuite:
     image: ddoyle/jboss-bpmsuite:6.2.0_postgresql
     volumes:
