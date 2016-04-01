@@ -15,7 +15,7 @@ RUN /usr/bin/unzip -qo /tmp/dockerfile_copy/jboss-bpmsuite-6.2.0.GA-deployable-e
 RUN /usr/bin/unzip -qo /tmp/dockerfile_copy/jboss-bpmsuite-6.2.0.GA-supplementary-tools.zip -d /opt/jboss
 
 # Create initial users.
-RUN /opt/jboss/jboss-eap-6.4/bin/add-user.sh -a -r ApplicationRealm -u bpmsAdmin -p jboss@01 -ro admin,analyst,developer --silent
+RUN /opt/jboss/jboss-eap-6.4/bin/add-user.sh -a -r ApplicationRealm -u bpmsAdmin -p jboss@01 -ro admin,analyst,developer,kiemgmt --silent
 
 # Clean up
 USER root
