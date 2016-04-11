@@ -1,9 +1,9 @@
+
+# Base image for all JBoss related docker images.
 #
-# Base image for all jboss related docker images.
+# This images uses CentOS7 and Java 8.
 #
-# This docker image uses CentOS 6 as the base OS (CentOS 7's systemd gives problems in a Docker environment atm), 
-#
-FROM    centos:centos6
+FROM    centos:centos7
 
 MAINTAINER ddoyle <ddoyle@redhat.com>
 
@@ -14,7 +14,7 @@ RUN yum -y update && yum clean all
 RUN echo "root:redhat" | chpasswd
 
 #Install necessary RPMs, i.e. the JVM and unzip. A JVM is required for all JBoss docker images.
-RUN yum -y install java-1.7.0-openjdk java-1.7.0-openjdk-devel unzip && yum clean all
+RUN yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel unzip && yum clean all
 
 # Set the JAVA_HOME environment variable.
 ENV JAVA_HOME /usr/lib/jvm/jre
