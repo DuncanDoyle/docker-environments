@@ -11,7 +11,7 @@ EXPOSE 8081
 USER root
 RUN yum -y install wget && yum clean all
 #Install jq
-RUN wget -O /usr/local/bin/jq http://stedolan.github.io/jq/download/linux64/jq && chmod 755 /usr/local/bin/jq
+RUN wget -O /usr/local/bin/jq https://stedolan.github.io/jq/download/linux64/jq && chmod 755 /usr/local/bin/jq
 USER nexus
 
 # Add installation files to tmp.
